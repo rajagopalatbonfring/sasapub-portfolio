@@ -1029,7 +1029,7 @@
 
 /* Trusted By Section */
 .trusted {
-    background: #fafafa;
+    background: #f1f1f1;
     padding: 100px 0;
     text-align: center;
 }
@@ -1186,7 +1186,7 @@
     display: grid;
     grid-template-columns: 1fr 1.4fr;
     gap: 80px;
-    align-items: start;
+    align-items: center;
 }
 
 .collab-left {
@@ -1244,8 +1244,18 @@
 }
 
 .collab-card.large {
-    grid-column: 1 / -1; /* Full width on its row */
-    padding: 35px 30px;
+    margin-top: 16px;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.collab-card.large > .collab-icon{
+    width: 25%;
+    align-self: flex-start;
+    border-radius: 100%;
 }
 
 .collab-icon {
@@ -2736,33 +2746,21 @@
     <div class="container">
         <div class="stats-grid">
             <div class="stat-item">
-                <div class="stat-icon-box">
-                    <span class="stat-icon">👤</span>
-                </div>
                 <div class="stat-number blue">1000+</div>
                 <div class="stat-label">Authors Supported</div>
             </div>
 
             <div class="stat-item">
-                <div class="stat-icon-box">
-                    <span class="stat-icon">🌍</span>
-                </div>
                 <div class="stat-number orange">10+</div>
                 <div class="stat-label">Countries Served</div>
             </div>
 
             <div class="stat-item">
-                <div class="stat-icon-box">
-                    <span class="stat-icon">📚</span>
-                </div>
                 <div class="stat-number teal">500+</div>
                 <div class="stat-label">Publications</div>
             </div>
 
             <div class="stat-item">
-                <div class="stat-icon-box">
-                    <span class="stat-icon">⭐</span>
-                </div>
                 <div class="stat-number yellow">4.5</div>
                 <div class="stat-label">Average Rating</div>
             </div>
@@ -2822,6 +2820,14 @@
                 <p class="collab-desc">
                     We maintain strong partnerships with academic institutions, journal publishers, and research organizations to ensure your work reaches the right audience.
                 </p>
+                
+                <div class="collab-card large">
+                    <div class="collab-icon">🛡️</div>
+                    <div>
+                        <h4>Ethical Publishing</h4>
+                        <p>We emphasize ethical publishing practices and transparent processes, ensuring integrity in every publication.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="collab-right">
@@ -2835,11 +2841,6 @@
                         <div class="collab-icon">📢</div>
                         <h4>Conference Organizers</h4>
                         <p>Collaboration with academic conferences worldwide</p>
-                    </div>
-                    <div class="collab-card large">
-                        <div class="collab-icon">🛡️</div>
-                        <h4>Ethical Publishing</h4>
-                        <p>We emphasize ethical publishing practices and transparent processes, ensuring integrity in every publication.</p>
                     </div>
                     <div class="collab-card">
                         <div class="collab-icon">🏛️</div>
