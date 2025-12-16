@@ -523,7 +523,12 @@
     gap: 80px;
     align-items: center;
 }
-
+@media (max-width: 1024px) {
+    .about-wrapper  {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
 .about-left {
     padding-right: 20px;
 }
@@ -591,6 +596,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+
+@media (max-width: 687px) {
+    .about-right {
+        grid-template-columns: 1fr;
+    }
 }
 
 .feature-card {
@@ -2498,15 +2509,12 @@
             <!-- CTA Buttons -->
             <div class="cta-buttons">
                 <a href="#contact" class="btn-primary">
-                    <span class="btn-icon">📖</span>
                     Publish With Us <span class="arrow">→</span>
                 </a>
                 <a href="#contact" class="btn-secondary">
-                    <span class="btn-icon">📄</span>
                     Submit Your Manuscript
                 </a>
                 <a href="#contact" class="btn-secondary">
-                    <span class="btn-icon">✉️</span>
                     Contact Us
                 </a>
             </div>
@@ -2532,55 +2540,55 @@
     </div>
 </section>
 
-    <!-- About Section -->
-    <section class="about fade-in" id="about">
-        <div class="container">
-            <div class="about-wrapper">
-                <div class="about-left">
-                    <span class="about-label">About Us</span>
-                    <h2 class="about-title">Empowering Authors &<br>Researchers Globally</h2>
-                    <p class="about-description">
-                        SASA Publications specializes in comprehensive publishing solutions including book publishing, journal publication assistance, thesis publication, conference support, research services, and professional printing solutions.
-                    </p>
-                    <p class="about-description">
-                        We support multi-language publishing in English, Tamil, Hindi, Telugu, Kannada, and Malayalam. Our end-to-end support covers everything from manuscript preparation to publication and post-publication guidance, ensuring your research reaches its intended audience with maximum impact.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat-box">
-                            <div class="stat-box-number">10+</div>
-                            <div class="stat-box-label">Years Experience</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-box-number highlight">24/7</div>
-                            <div class="stat-box-label">Author Support</div>
-                        </div>
+<!-- About Section -->
+<section class="about fade-in" id="about">
+    <div class="container">
+        <div class="about-wrapper">
+            <div class="about-left">
+                <span class="about-label">About Us</span>
+                <h2 class="about-title">Empowering Authors &<br>Researchers Globally</h2>
+                <p class="about-description">
+                    SASA Publications specializes in comprehensive publishing solutions including book publishing, journal publication assistance, thesis publication, conference support, research services, and professional printing solutions.
+                </p>
+                <p class="about-description">
+                    We support multi-language publishing in English, Tamil, Hindi, Telugu, Kannada, and Malayalam. Our end-to-end support covers everything from manuscript preparation to publication and post-publication guidance, ensuring your research reaches its intended audience with maximum impact.
+                </p>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <div class="stat-box-number">10+</div>
+                        <div class="stat-box-label">Years Experience</div>
                     </div>
-                </div>
-                <div class="about-right">
-                    <div class="feature-card">
-                        <div class="feature-icon">📖</div>
-                        <h4>Comprehensive Publishing</h4>
-                        <p>From manuscript to publication with expert guidance at every step</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🌐</div>
-                        <h4>Global Reach</h4>
-                        <p>Publishing services reaching researchers across 10+ countries</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">👥</div>
-                        <h4>Author-Centric</h4>
-                        <p>Dedicated support team ensuring your publishing success</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">✓</div>
-                        <h4>Quality Assured</h4>
-                        <p>Rigorous editorial and technical review processes</p>
+                    <div class="stat-box">
+                        <div class="stat-box-number highlight">24/7</div>
+                        <div class="stat-box-label">Author Support</div>
                     </div>
                 </div>
             </div>
+            <div class="about-right">
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h4>Comprehensive Publishing</h4>
+                    <p>From manuscript to publication with expert guidance at every step</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h4>Global Reach</h4>
+                    <p>Publishing services reaching researchers across 10+ countries</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h4>Author-Centric</h4>
+                    <p>Dedicated support team ensuring your publishing success</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h4>Quality Assured</h4>
+                    <p>Rigorous editorial and technical review processes</p>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- Services Section -->
 <section class="services fade-in" id="services">
