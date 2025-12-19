@@ -1129,22 +1129,95 @@
     color: #1a1a1a;
     font-weight: 600;
 }
-
+/* Satisfaction Badge - Updated to match the image exactly */
 .satisfaction-badge {
     display: inline-flex;
     align-items: center;
     gap: 15px;
-    background: #ffffff;
-    padding: 15px 30px;
+    background: linear-gradient(to right, #f8f9fa, #eef2ff);
+    padding: 12px 24px;
     border-radius: 50px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     font-size: 15px;
     color: #1a1a1a;
+    margin-top: 40px;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.rating-stars span {
-    color: #f4a300;
-    font-size: 18px;
+.satisfaction-circles {
+    display: flex;
+    align-items: center;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #f4a300d5, #ffca5f);
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(244, 163, 0, 0.3);
+}
+
+.circle:not(:first-child) {
+    margin-left: -12px;
+}
+
+.join-text {
+    font-weight: 600;
+    color: #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .satisfaction-badge {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+
+    .satisfaction-circles {
+        order: 1;
+    }
+
+    .join-text {
+        order: 2;
+        font-size: 14px;
+    }
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .circle:not(:first-child) {
+        margin-left: -10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .circle {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+    }
+
+    .circle:not(:first-child) {
+        margin-left: -8px;
+    }
+
+    .satisfaction-badge {
+        padding: 14px 18px;
+    }
 }
 
 .badge-text {
@@ -1347,6 +1420,180 @@
     }
 }
 
+
+
+
+
+/* Journey Section */
+.journey {
+    background: #ffffff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.journey-header {
+    margin-bottom: 80px;
+}
+
+.journey-label {
+    display: inline-block;
+    background: #e0f7f7;
+    color: #00a3a3;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 48px;
+    color: #1a1a1a;
+    margin: 20px 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: #6b6b6b;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.journey-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.journey-timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: #e0e0e0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 2px;
+}
+
+.timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #00a3a3;
+    border: 4px solid #ffffff;
+    top: 35px;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 163, 163, 0.2);
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -10px;
+}
+
+.timeline-year {
+    font-size: 18px;
+    font-weight: 700;
+    color: #00a3a3;
+    margin-bottom: 10px;
+}
+
+.timeline-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    display: inline-block;
+    max-width: 380px;
+}
+
+.timeline-content h3 {
+    font-size: 20px;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    font-size: 15px;
+    color: #6b6b6b;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .journey-timeline::before {
+        left: 30px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .timeline-item::after {
+        left: 20px;
+    }
+
+    .timeline-content {
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 40px;
+    }
+
+    .timeline-content {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .timeline-item {
+        padding-left: 50px;
+    }
+
+    .timeline-item::after {
+        left: 10px;
+    }
+}
 
 
 
@@ -2609,6 +2856,67 @@
     </div>
 </section>
 
+<!-- Journey Section -->
+<section class="journey fade-in" id="journey">
+    <div class="container">
+        <div class="journey-header">
+            <span class="journey-label">Our Journey</span>
+            <h2 class="section-title">Our Journey</h2>
+            <p class="section-subtitle">From a focused book publishing house to a comprehensive academic support partner—milestones that define our growth and commitment to excellence.</p>
+        </div>
+
+        <div class="journey-timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">2018</div>
+                <div class="timeline-content">
+                    <h3>Foundation Year</h3>
+                    <p>Founded as a professional book publishing company dedicated to Indian authors.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">Post-2018</div>
+                <div class="timeline-content">
+                    <h3>Global Expansion</h3>
+                    <p>Expanded into international book publishing and conference proceedings.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">Next Phase</div>
+                <div class="timeline-content">
+                    <h3>Journal Services Launch</h3>
+                    <p>Introduced journal publication services for Scopus, Web of Science, and EI Indexed journals.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">Growth Stage</div>
+                <div class="timeline-content">
+                    <h3>Researcher Support</h3>
+                    <p>Launched comprehensive author and researcher support services.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">Recent</div>
+                <div class="timeline-content">
+                    <h3>Patent Collaborations</h3>
+                    <p>Established strategic collaborations for UK- and India-based patent filing services.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">Ongoing</div>
+                <div class="timeline-content">
+                    <h3>Institutional Support</h3>
+                    <p>Expanding into NAAC & NBA accreditation assistance and institutional ranking guidance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Services Section -->
 <section class="services fade-in" id="services">
     <div class="container">
@@ -2859,10 +3167,12 @@
         </div>
 
         <div class="satisfaction-badge">
-            <div class="rating-stars">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            <div class="satisfaction-circles">
+                <span class="circle">1K</span>
+                <span class="circle">2K</span>
+                <span class="circle">3K</span>
+                <span class="circle">4K</span>
             </div>
-            <span class="badge-text">1K 2K 3K 4K</span>
             <span class="join-text">Join 1000+ satisfied authors</span>
         </div>
     </div>
