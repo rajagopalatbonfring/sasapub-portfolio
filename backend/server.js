@@ -24,6 +24,7 @@ emailjs.init({
 app.post('/send-contact', async (req, res) => {
     const { name, email, subject, message } = req.body;
 
+    // Validation
     if (!name || !email || !subject || !message) {
         return res.status(400).json({
             status: 'error',
@@ -31,7 +32,25 @@ app.post('/send-contact', async (req, res) => {
         });
     }
 
-    const templateParams = { name, email, subject, message };
+    // Add formatted timestamp to template
+    const receivedTime = new Date().toLocaleString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+        timeZoneName: 'short'
+    }); // Example: "Friday, December 20, 2025 at 5:47 PM IST"
+
+    const templateParams = {
+        name,
+        email,
+        subject,
+        message,
+        time: receivedTime
+    };
 
     try {
         await emailjs.send(
