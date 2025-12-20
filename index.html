@@ -686,7 +686,7 @@
     padding: 40px 25px;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    text-align: center;
+    text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -2388,17 +2388,33 @@
     }
 }
 
-/* CTA Section */
-.cta-section {
+
+
+
+
+
+
+
+
+
+
+
+
+/* Simplified Combined Section - Dark Blue Background */
+.combined-cta-contact {
     background: #1a2b4b;
     color: #ffffff;
-    padding: 120px 20px;
+    padding: 140px 20px 120px;
     text-align: center;
+}
+
+.combined-cta-contact .container {
+    max-width: 1200px;
 }
 
 .cta-content {
     max-width: 900px;
-    margin: 0 auto;
+    margin: 0 auto 100px;
 }
 
 .cta-title {
@@ -2421,140 +2437,34 @@
     font-size: 18px;
     color: #b0c4de;
     max-width: 700px;
-    margin: 0 auto 50px;
+    margin: 0 auto;
     line-height: 1.7;
 }
 
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 60px;
-}
 
-.btn-primary-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #f4a300;
-    color: #1a1a1a;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 18px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 8px 25px rgba(244, 163, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-.btn-primary-cta:hover {
-    background: #e69500;
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(244, 163, 0, 0.4);
-}
-
-.btn-primary-cta .arrow {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.btn-secondary-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: transparent;
-    color: #f4a300;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 18px 32px;
-    border: 2px solid #f4a300;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.btn-secondary-cta:hover {
-    background: #f4a300;
-    color: #1a1a1a;
-    transform: translateY(-5px);
-}
-
-.btn-icon {
-    font-size: 20px;
-}
-
-.cta-benefits {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    font-size: 16px;
-    color: #b0c4de;
-}
-
-.benefit-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background: #f4a300;
-    border-radius: 50%;
-    display: inline-block;
-}
 
 /* Responsive */
+@media (max-width: 1024px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+
 @media (max-width: 992px) {
-    .cta-title {
-        font-size: 44px;
-    }
-    .cta-subtitle {
-        font-size: 40px;
-    }
-    .cta-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .btn-primary-cta,
-    .btn-secondary-cta {
-        width: 320px;
-        justify-content: center;
-    }
+    .cta-title { font-size: 44px; }
+    .cta-subtitle { font-size: 40px; }
 }
 
 @media (max-width: 768px) {
-    .cta-title {
-        font-size: 38px;
-    }
-    .cta-subtitle {
-        font-size: 36px;
-    }
-    .cta-desc {
-        font-size: 16px;
-    }
-    .cta-benefits {
-        flex-direction: column;
-        gap: 15px;
-    }
+    .combined-cta-contact { padding: 100px 20px; }
+    .cta-title { font-size: 38px; }
+    .cta-subtitle { font-size: 36px; }
 }
 
 @media (max-width: 480px) {
-    .cta-section {
-        padding: 100px 20px;
-    }
-    .btn-primary-cta,
-    .btn-secondary-cta {
-        width: 100%;
-        max-width: 300px;
-        font-size: 17px;
-        padding: 16px 28px;
-    }
+    .info-card { flex-direction: column; text-align: center; gap: 15px; }
+    .info-icon { margin-bottom: 10px; }
 }
 
 /* Contact Section */
@@ -2616,6 +2526,7 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
     display: flex;
     align-items: center;
+    text-align: left;
     gap: 20px;
     transition: transform 0.3s ease;
 }
@@ -3415,7 +3326,7 @@
 </section>
 
 <!-- Trusted By Section -->
-<section class="trusted fade-in" id="trusted">
+<!-- <section class="trusted fade-in" id="trusted">
     <div class="container">
         <div class="trusted-header">
             <span class="trusted-label">Trusted Partners</span>
@@ -3456,7 +3367,7 @@
             <span class="join-text">Join 1000+ satisfied authors</span>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Collaborations & Network Section -->
 <section class="collaborations fade-in" id="collaborations">
@@ -3594,7 +3505,7 @@
 </section>
 
 <!-- Portfolio Section -->
-<section class="portfolio fade-in" id="portfolio">
+<!-- <section class="portfolio fade-in" id="portfolio">
     <div class="container">
         <div class="portfolio-header">
             <span class="portfolio-label">Our Portfolio</span>
@@ -3603,7 +3514,6 @@
         </div>
 
         <div class="portfolio-grid">
-            <!-- Publication 1 -->
             <div class="publication-card">
                 <span class="pub-badge book">Book</span>
                 <div class="pub-icon">📖</div>
@@ -3612,7 +3522,6 @@
                 <p class="pub-year">2024</p>
             </div>
 
-            <!-- Publication 2 -->
             <div class="publication-card">
                 <span class="pub-badge journal">Journal</span>
                 <div class="pub-icon">📄</div>
@@ -3621,7 +3530,6 @@
                 <p class="pub-year">2024</p>
             </div>
 
-            <!-- Publication 3 -->
             <div class="publication-card">
                 <span class="pub-badge thesis">Thesis</span>
                 <div class="pub-icon">🎓</div>
@@ -3630,7 +3538,6 @@
                 <p class="pub-year">2023</p>
             </div>
 
-            <!-- Publication 4 -->
             <div class="publication-card">
                 <span class="pub-badge conference">Conference</span>
                 <div class="pub-icon">🏛️</div>
@@ -3639,7 +3546,6 @@
                 <p class="pub-year">2024</p>
             </div>
 
-            <!-- Publication 5 -->
             <div class="publication-card">
                 <span class="pub-badge book">Book</span>
                 <div class="pub-icon">📖</div>
@@ -3648,7 +3554,6 @@
                 <p class="pub-year">2023</p>
             </div>
 
-            <!-- Publication 6 -->
             <div class="publication-card">
                 <span class="pub-badge journal">Journal</span>
                 <div class="pub-icon">📄</div>
@@ -3665,7 +3570,7 @@
             </a>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Why Choose Us Section -->
 <section class="why-choose fade-in" id="why-choose">
@@ -3728,8 +3633,96 @@
     </div>
 </section>
 
+
+<!-- Combined CTA + Contact Section (Simplified) -->
+<section class="combined-cta-contact fade-in" id="contact">
+    <div class="container">
+        <!-- Main CTA Heading -->
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Publish Your Work?</h2>
+            <h3 class="cta-subtitle">Let's Make It Happen.</h3>
+            <p class="cta-desc">
+                Take the first step towards getting your research and manuscripts published with professional support from start to finish.
+            </p>
+        </div>
+
+        <!-- Contact Form + Info (No extra headings, buttons, or benefits) -->
+        <div class="contact-content" id="contact-form-section">
+            <div class="contact-wrapper">
+                <!-- Left: Contact Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <strong>Phone / WhatsApp</strong>
+                            <p><a href="tel:+919597265214">+91 9597265214</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-content">
+                            <strong>Email</strong>
+                            <p><a href="mailto:info@sasapublications.com">suresh@sasapublication.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">🌐</div>
+                        <div class="info-content">
+                            <strong>Website</strong>
+                            <p><a href="https://www.sasapublications.com" target="_blank">www.sasapublications.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <strong>Location</strong>
+                            <p>Coimbatore, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="contact-form-card">
+                    <h3 class="form-title">Send Us a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" required>
+                            <label>Full Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" required>
+                            <label>Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <select name="subject" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="Book Publishing">Book Publishing</option>
+                                <option value="Journal Publication">Journal Publication</option>
+                                <option value="Thesis Support">Thesis Support</option>
+                                <option value="Conference Paper">Conference Paper</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" required></textarea>
+                            <label>Message</label>
+                        </div>
+                        <button type="submit" class="btn-send">
+                            <span class="send-icon">📤</span>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CTA Section -->
-<section class="cta-section fade-in" id="cta">
+<!-- <section class="cta-section fade-in" id="cta">
     <div class="container">
         <div class="cta-content">
             <h2 class="cta-title">Ready to Publish Your Work?</h2>
@@ -3766,10 +3759,10 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Contact Section -->
-<section class="contact fade-in" id="contact">
+<!-- <section class="contact fade-in" id="contact">
     <div class="container">
         <div class="contact-header">
             <span class="contact-label">Get in Touch</span>
@@ -3780,7 +3773,6 @@
         </div>
 
         <div class="contact-wrapper">
-            <!-- Left: Contact Info -->
             <div class="contact-info">
                 <div class="info-card">
                     <div class="info-icon">📞</div>
@@ -3815,8 +3807,6 @@
                 </div>
             </div>
 
-            <!-- Right: Contact Form -->
-            <!-- Updated Contact Form (Add name attributes and id) -->
             <div class="contact-form-card">
                 <h3 class="form-title">Send Us a Message</h3>
                 <form id="contact-form">
@@ -3850,7 +3840,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
     <!-- Footer -->
     <footer>
