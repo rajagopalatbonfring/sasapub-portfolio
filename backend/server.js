@@ -53,8 +53,8 @@ app.post('/send-contact', async (req, res) => {
     }
 });
 
-// FIXED: Catch-all route compatible with Express v5+ / path-to-regexp v8+
-app.get('/:catchAll*', (req, res) => {
+// FIXED: Proper catch-all route for Express v5+ / path-to-regexp v8+
+app.get('/*catchall', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 

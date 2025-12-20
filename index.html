@@ -1421,9 +1421,6 @@
     }
 }
 
-
-
-
 /* Journey Section */
         .journey {
             background: linear-gradient(135deg, #ffffff 0%, #f0fffe 100%);
@@ -1431,6 +1428,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .journey::before {
             content: '';
             position: absolute;
@@ -1441,6 +1439,7 @@
             background: radial-gradient(circle, rgba(0, 163, 163, 0.05) 0%, transparent 70%);
             border-radius: 50%;
         }
+
         .journey::after {
             content: '';
             position: absolute;
@@ -1451,6 +1450,7 @@
             background: radial-gradient(circle, rgba(0, 163, 163, 0.03) 0%, transparent 70%);
             border-radius: 50%;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -1458,15 +1458,24 @@
             position: relative;
             z-index: 1;
         }
+
         .journey-header {
             text-align: center;
             margin-bottom: 100px;
             animation: fadeInUp 0.8s ease-out;
         }
+
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .journey-label {
             display: inline-block;
             background: linear-gradient(135deg, #e0f7f7 0%, #d0f0f0 100%);
@@ -1480,6 +1489,7 @@
             margin-bottom: 24px;
             box-shadow: 0 4px 15px rgba(0, 163, 163, 0.1);
         }
+
         .section-title {
             font-size: 56px;
             color: #1a1a1a;
@@ -1491,6 +1501,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .section-subtitle {
             font-size: 18px;
             color: #6b6b6b;
@@ -1500,65 +1511,96 @@
             font-weight: 400;
         }
 
-        /* Timeline */
         .journey-timeline {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             position: relative;
             padding: 40px 0;
         }
+
+        /* Vertical line with gradient */
         .journey-timeline::before {
             content: '';
             position: absolute;
-            width: 4px;
+            width: 3px;
             background: linear-gradient(180deg, rgba(0, 163, 163, 0.2) 0%, #00a3a3 50%, rgba(0, 163, 163, 0.2) 100%);
             top: 0;
             bottom: 0;
             left: 50%;
-            transform: translateX(-50%);
-            border-radius: 4px;
+            margin-left: -1.5px;
+            border-radius: 3px;
             z-index: 0;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 100px;
+            margin-bottom: 80px;
             opacity: 0;
-            animation: slideIn 0.8s ease-out forwards;
+            animation: slideIn 0.6s ease-out forwards;
+            display: flex;
+            align-items: flex-start;
+            min-height: 120px;
         }
-        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
-        .timeline-item:nth-child(5) { animation-delay: 1.0s; }
-        .timeline-item:nth-child(6) { animation-delay: 1.2s; }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
 
         @keyframes slideIn {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .timeline-item:last-child { margin-bottom: 0; }
-
-        .timeline-content-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            width: 100%;
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
-        .timeline-content-inner {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            max-width: 900px;
-            gap: 60px;
+        /* Left side items (odd) */
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-end;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            order: 1;
+            text-align: left;
+            padding-left: 50px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            order: 0;
+            margin-right: 50px;
+        }
+
+        /* Right side items (even) */
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            order: 0;
+            text-align: right;
+            padding-right: 50px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            order: 1;
+            margin-left: 50px;
         }
 
         .timeline-year {
-            flex: 0 0 180px;
-            text-align: center;
+            width: 50%;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 20px;
         }
 
         .year-badge {
@@ -1572,14 +1614,40 @@
             letter-spacing: 0.5px;
             box-shadow: 0 8px 20px rgba(0, 163, 163, 0.3);
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
+
         .timeline-item:hover .year-badge {
-            transform: scale(1.08);
-            box-shadow: 0 12px 30px rgba(0, 163, 163, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 12px 28px rgba(0, 163, 163, 0.4);
+        }
+
+        /* Center dot - positioned absolutely relative to timeline */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background: #ffffff;
+            border: 4px solid #00a3a3;
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 0 8px rgba(0, 163, 163, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            width: 28px;
+            height: 28px;
+            top: 28px;
+            box-shadow: 0 0 0 12px rgba(0, 163, 163, 0.15);
         }
 
         .timeline-content {
-            flex: 1;
+            width: 50%;
             background: #ffffff;
             padding: 40px;
             border-radius: 24px;
@@ -1588,20 +1656,33 @@
             transition: all 0.4s ease;
             border: 2px solid transparent;
         }
-        .timeline-item:hover .timeline-content {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 163, 163, 0.15);
-            border-color: rgba(0, 163, 163, 0.2);
-        }
 
-        .timeline-content::before {
+        /* Arrow pointers */
+        .timeline-content::after {
             content: '';
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
             width: 0;
             height: 0;
-            border: 12px solid transparent;
+            border-style: solid;
+            top: 35px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            border-width: 12px 0 12px 16px;
+            border-color: transparent transparent transparent #ffffff;
+            right: -16px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            border-width: 12px 16px 12px 0;
+            border-color: transparent #ffffff transparent transparent;
+            left: -16px;
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 163, 163, 0.15);
+            border-color: rgba(0, 163, 163, 0.2);
         }
 
         .timeline-content h3 {
@@ -1613,6 +1694,7 @@
             align-items: center;
             gap: 12px;
         }
+
         .timeline-content h3::before {
             content: '';
             width: 6px;
@@ -1621,115 +1703,159 @@
             border-radius: 3px;
             flex-shrink: 0;
         }
+
         .timeline-content p {
             font-size: 16px;
             color: #6b6b6b;
             line-height: 1.8;
+            margin: 0;
         }
 
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            top: 50px; /* Align with top of card */
-            transform: translateX(-50%);
-            width: 24px;
-            height: 24px;
-            background: #ffffff;
-            border: 5px solid #00a3a3;
-            border-radius: 50%;
-            z-index: 2;
-            box-shadow: 0 0 0 8px rgba(0, 163, 163, 0.1);
-            transition: all 0.3s ease;
-        }
-        .timeline-item:hover .timeline-dot {
-            width: 30px;
-            height: 30px;
-            box-shadow: 0 0 0 12px rgba(0, 163, 163, 0.2);
-        }
-
-        /* Desktop alternating layout */
-        .timeline-item:nth-child(odd) .timeline-content-inner {
-            flex-direction: row;
-        }
-        .timeline-item:nth-child(odd) .timeline-year {
-            text-align: right;
-        }
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            left: -12px;
-            border-right-color: #ffffff;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content-inner {
-            flex-direction: row-reverse;
-        }
-        .timeline-item:nth-child(even) .timeline-year {
-            text-align: left;
-        }
-        .timeline-item:nth-child(even) .timeline-content::before {
-            right: -12px;
-            border-left-color: #ffffff;
-        }
-
-        /* Responsive - Mobile first approach */
+        /* Responsive Design */
         @media (max-width: 992px) {
+            .section-title {
+                font-size: 48px;
+            }
+
             .journey-timeline::before {
-                left: 40px;
-                transform: none;
+                left: 30px;
+                margin-left: 0;
             }
-            .timeline-dot {
-                left: 40px;
-                transform: none;
-            }
+
             .timeline-item {
-                margin-bottom: 80px;
-                padding-left: 100px;
+                flex-direction: row;
+                justify-content: flex-start !important;
+                padding-left: 80px;
             }
-            .timeline-content-wrapper {
-                justify-content: flex-start;
+
+            .timeline-item::before {
+                left: 30px;
+                transform: translateX(0);
             }
-            .timeline-content-inner {
-                flex-direction: column !important;
-                align-items: flex-start;
-                gap: 20px;
+
+            .timeline-item:hover::before {
+                left: 29px;
             }
-            .timeline-year {
-                flex: none;
-                text-align: left !important;
+
+            .timeline-item:nth-child(odd) .timeline-year,
+            .timeline-item:nth-child(even) .timeline-year {
+                order: 0;
                 width: auto;
+                text-align: left;
+                padding: 0;
+                padding-top: 20px;
+                margin-right: 20px;
             }
-            .timeline-content {
-                width: 100%;
-                padding: 30px;
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                order: 1;
+                width: auto;
+                flex: 1;
+                margin: 0;
             }
-            .timeline-content::before {
+
+            .timeline-content::after {
                 display: none;
+            }
+
+            .timeline-content {
+                padding: 30px;
             }
         }
 
         @media (max-width: 768px) {
-            .journey { padding: 80px 0; }
-            .journey-header { margin-bottom: 60px; }
-            .section-title { font-size: 40px; }
-            .section-subtitle { font-size: 16px; }
-            .timeline-item { padding-left: 80px; margin-bottom: 70px; }
-            .journey-timeline::before { left: 30px; }
-            .timeline-dot { left: 30px; width: 20px; height: 20px; }
-            .year-badge { padding: 10px 20px; font-size: 14px; }
-            .timeline-content { padding: 25px; }
-            .timeline-content h3 { font-size: 20px; }
+            .journey {
+                padding: 80px 0;
+            }
+
+            .journey-header {
+                margin-bottom: 60px;
+            }
+
+            .section-title {
+                font-size: 40px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+            }
+
+            .timeline-item {
+                margin-bottom: 60px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-year,
+            .timeline-item:nth-child(even) .timeline-year {
+                margin-bottom: 15px;
+                padding-top: 0;
+            }
+
+            .timeline-content {
+                padding: 25px;
+                width: 100%;
+            }
+
+            .timeline-content h3 {
+                font-size: 20px;
+            }
+
+            .timeline-content p {
+                font-size: 15px;
+            }
+
+            .year-badge {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
         }
 
         @media (max-width: 576px) {
-            .section-title { font-size: 32px; }
-            .journey-timeline::before { left: 20px; }
-            .timeline-dot { left: 20px; }
-            .timeline-item { padding-left: 60px; margin-bottom: 60px; }
-            .year-badge { padding: 8px 16px; font-size: 13px; }
-            .timeline-content { padding: 20px; }
-            .timeline-content h3 { font-size: 18px; }
-            .timeline-content h3::before { width: 4px; height: 24px; }
-        }
+            .section-title {
+                font-size: 32px;
+            }
 
+            .journey-timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+                margin-bottom: 50px;
+            }
+
+            .timeline-item::before {
+                left: 20px;
+                width: 20px;
+                height: 20px;
+                top: 10px;
+            }
+
+            .timeline-item:hover::before {
+                left: 19px;
+                top: 9px;
+            }
+
+            .year-badge {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .timeline-content {
+                padding: 20px;
+            }
+
+            .timeline-content h3 {
+                font-size: 18px;
+            }
+
+            .timeline-content h3::before {
+                width: 4px;
+                height: 24px;
+            }
+        }
 
 
 
@@ -2990,107 +3116,78 @@
     </div>
 </section>
 
+<!-- Journey Section -->
 <section class="journey" id="journey">
-        <div class="container">
-            <div class="journey-header">
-                <span class="journey-label">Our Journey</span>
-                <h2 class="section-title">Our Journey</h2>
-                <p class="section-subtitle">From a focused book publishing house to a comprehensive academic support partner—milestones that define our growth and commitment to excellence.</p>
+    <div class="container">
+        <div class="journey-header">
+            <span class="journey-label">Our Journey</span>
+            <h2 class="section-title">Our Journey</h2>
+            <p class="section-subtitle">From a focused book publishing house to a comprehensive academic support partner—milestones that define our growth and commitment to excellence.</p>
+        </div>
+
+        <div class="journey-timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">
+                    <span class="year-badge">2018</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Foundation Year</h3>
+                    <p>Founded as a professional book publishing company dedicated to Indian authors.</p>
+                </div>
             </div>
 
-            <div class="journey-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content-wrapper">
-                        <div class="timeline-content-inner">
-                            <div class="timeline-year">
-                                <span class="year-badge">2018</span>
-                            </div>
-                            <div class="timeline-content">
-                                <h3>Foundation Year</h3>
-                                <p>Founded as a professional book publishing company dedicated to Indian authors.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
+            <div class="timeline-item">
+                <div class="timeline-year">
+                    <span class="year-badge">Post-2018</span>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content-wrapper">
-                        <div class="timeline-content-inner">
-                            <div class="timeline-year">
-                                <span class="year-badge">Post-2018</span>
-                            </div>
-                            <div class="timeline-content">
-                                <h3>Global Expansion</h3>
-                                <p>Expanded into international book publishing and conference proceedings.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
+                <div class="timeline-content">
+                    <h3>Global Expansion</h3>
+                    <p>Expanded into international book publishing and conference proceedings.</p>
                 </div>
+            </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-content-wrapper">
-                        <div class="timeline-content-inner">
-                            <div class="timeline-year">
-                                <span class="year-badge">Next Phase</span>
-                            </div>
-                            <div class="timeline-content">
-                                <h3>Journal Services Launch</h3>
-                                <p>Introduced journal publication services for Scopus, Web of Science, and EI Indexed journals.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
+            <div class="timeline-item">
+                <div class="timeline-year">
+                    <span class="year-badge">Next Phase</span>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content-wrapper">
-                        <div class="timeline-content-inner">
-                            <div class="timeline-year">
-                                <span class="year-badge">Growth Stage</span>
-                            </div>
-                            <div class="timeline-content">
-                                <h3>Researcher Support</h3>
-                                <p>Launched comprehensive author and researcher support services.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
+                <div class="timeline-content">
+                    <h3>Journal Services Launch</h3>
+                    <p>Introduced journal publication services for Scopus, Web of Science, and EI Indexed journals.</p>
                 </div>
+            </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-content-wrapper">
-                        <div class="timeline-content-inner">
-                            <div class="timeline-year">
-                                <span class="year-badge">Recent</span>
-                            </div>
-                            <div class="timeline-content">
-                                <h3>Patent Collaborations</h3>
-                                <p>Established strategic collaborations for UK- and India-based patent filing services.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
+            <div class="timeline-item">
+                <div class="timeline-year">
+                    <span class="year-badge">Growth Stage</span>
                 </div>
+                <div class="timeline-content">
+                    <h3>Researcher Support</h3>
+                    <p>Launched comprehensive author and researcher support services.</p>
+                </div>
+            </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-content-wrapper">
-                        <div class="timeline-content-inner">
-                            <div class="timeline-year">
-                                <span class="year-badge">Ongoing</span>
-                            </div>
-                            <div class="timeline-content">
-                                <h3>Institutional Support</h3>
-                                <p>Expanding into NAAC & NBA accreditation assistance and institutional ranking guidance.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-dot"></div>
-                    </div>
+            <div class="timeline-item">
+                <div class="timeline-year">
+                    <span class="year-badge">Recent</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Patent Collaborations</h3>
+                    <p>Established strategic collaborations for UK- and India-based patent filing services.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">
+                    <span class="year-badge">Ongoing</span>
+                </div>
+                <div class="timeline-content">
+                    <h3>Institutional Support</h3>
+                    <p>Expanding into NAAC & NBA accreditation assistance and institutional ranking guidance.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- Services Section -->
 <section class="services fade-in" id="services">
