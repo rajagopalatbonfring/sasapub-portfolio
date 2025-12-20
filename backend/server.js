@@ -1,30 +1,29 @@
-require('dotenv').config(); // Automatically loads .env from the current directory (backend/)
+require('dotenv').config(); // Loads .env from backend/ automatically with Root Directory set
 const express = require('express');
 const emailjs = require('@emailjs/nodejs');
 const path = require('path');
 
 const app = express();
 
-// Use Render's provided PORT, fallback to 3000 for local development
+// Render-provided PORT + bind to 0.0.0.0 (required on Render)
 const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
 
-// Serve static files (HTML, CSS, JS, images) from the parent directory (project root)
+// Serve static files from parent directory (project root)
 app.use(express.static(path.join(__dirname, '..')));
 
-// Initialize EmailJS with your credentials
+// Initialize EmailJS
 emailjs.init({
-    publicKey: process.env.EMAILJS_PUBLIC_KEY,   // Optional for server-side, but safe to include
-    privateKey: process.env.EMAILJS_PRIVATE_KEY, // Required for server-side sending
+    publicKey: process.env.EMAILJS_PUBLIC_KEY,
+    privateKey: process.env.EMAILJS_PRIVATE_KEY,
 });
 
 // Contact Form Endpoint
 app.post('/send-contact', async (req, res) => {
     const { name, email, subject, message } = req.body;
 
-    // Basic validation
     if (!name || !email || !subject || !message) {
         return res.status(400).json({
             status: 'error',
@@ -54,8 +53,8 @@ app.post('/send-contact', async (req, res) => {
     }
 });
 
-// IMPORTANT: Catch-all route to serve index.html for client-side routing (hash # links)
-app.get('*', (req, res) => {
+// FIXED: Catch-all route compatible with Express v5+ / path-to-regexp v8+
+app.get('/:catchAll*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
