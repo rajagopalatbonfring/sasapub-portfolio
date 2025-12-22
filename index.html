@@ -3826,7 +3826,6 @@ dots.forEach((dot, index) => {
 </script>
 
 
-// Add this script at the bottom of your <body> (before closing </body>)
 <script>
     const form = document.getElementById('contact-form');
 
@@ -3840,8 +3839,12 @@ dots.forEach((dot, index) => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
 
+        // CHANGE THIS LINE: Replace with your actual Render API URL
+        const API_URL = 'https://sasapub-backend.onrender.com';
+        // Example: 'https://my-contact-form-backend.onrender.com/send-contact'
+
         try {
-            const response = await fetch('/send-contact', {
+            const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -3866,7 +3869,6 @@ dots.forEach((dot, index) => {
         }
     });
 </script>
-
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
