@@ -23,8 +23,7 @@
         }
 
         body {
-            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text);
             overflow-x: hidden;
@@ -2958,6 +2957,56 @@
 </section>
 
 <!-- About Section -->
+<!-- <section class="about fade-in" id="about">
+    <div class="container">
+        <div class="about-wrapper">
+            <div class="about-left">
+                <span class="about-label">About Us</span>
+                <h2 class="about-title">Empowering Authors &<br>Researchers Globally</h2>
+                <p class="about-description">
+                    SASA Publications is a global academic publishing and research support organization, established in 2018. What began as a focused book publishing initiative for Indian authors has grown into a comprehensive academic solutions platform serving researchers, scholars, professionals, and universities across the world.
+                We support the academic ecosystem through ethical publishing practices, transparent workflows, and customized research solutions guiding clients from research ideation to global publication, patent filing, and institutional accreditation support.
+
+                <p class="about-description">
+                   Today, Business SASA Publications is recognized as a trusted academic partner, delivering end-to-end research and publishing services across diverse disciplines and international standards.
+                </p>
+                </p>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <div class="stat-box-number">7+</div>
+                        <div class="stat-box-label">Years Experience</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-number highlight">24/7</div>
+                        <div class="stat-box-label">Author Support</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-right">
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h4>Comprehensive Publishing</h4>
+                    <p>From manuscript to publication with expert guidance at every step</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h4>Global Reach</h4>
+                    <p>Publishing services reaching researchers across 10+ countries</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h4>Author-Centric</h4>
+                    <p>Dedicated support team ensuring your publishing success</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h4>Quality Assured</h4>
+                    <p>Rigorous editorial and technical review processes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
 <section class="about fade-in" id="about">
         <div class="container">
             <div class="about-wrapper">
@@ -3777,7 +3826,7 @@ dots.forEach((dot, index) => {
 </script>
 
 
-<script>
+<!-- <script>
     const form = document.getElementById('contact-form');
 
     form.addEventListener('submit', async function(e) {
@@ -3810,6 +3859,48 @@ dots.forEach((dot, index) => {
             } else {
                 alert('❌ Error: ' + result.message);
                 console.log(error);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('❌ Failed to send message. Please try again later.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span class="send-icon">📤</span> Send Message';
+        }
+    });
+</script> -->
+
+
+
+<script>
+    const form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault(); // Prevent page reload
+
+        const submitBtn = form.querySelector('.btn-send');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="send-icon">⏳</span> Sending...';
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        try {
+            const response = await fetch('/send-contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                alert('✅ Thank you! Your message has been sent successfully.');
+                form.reset();
+            } else {
+                alert('❌ Error: ' + result.message);
             }
         } catch (error) {
             console.error('Error:', error);
@@ -3874,7 +3965,5 @@ dots.forEach((dot, index) => {
         tag.style.opacity = '0';
     });
 </script>
-
-
 </body>
 </html>
